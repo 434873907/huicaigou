@@ -1,0 +1,541 @@
+[
+  {
+    "name": "登录",
+    "path": "/login"
+  },
+  {
+    "name": "注册",
+    "path": "/register"
+  },
+  {
+    "name": "后台中心",
+    "path": "/center",
+    "groups": [
+      {
+        "groupName": "工作桌面",
+        "path": "/desktop",
+        "list": [
+          {
+            "title": "工作台",
+            "children":[
+              {
+                "hideBreadNav":true,
+                "path": "/task",
+                "title": "任务"
+              },
+              {
+                "path": "/feedback",
+                "title": "反馈"
+              }
+            ]
+          }
+        ]
+      },{
+        "groupName": "概况",
+        "path": "/statistical",
+        "list": [
+          {
+            "title": "实时概况",
+            "children":[
+              {
+                "hideBreadNav":true,
+                "path": "/supplierStatistical",
+                "title": "供货商概况"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "groupName": "系统",
+        "path": "/system",
+        "list": [
+          {
+            "title": "配置",
+            "children":[
+              {
+                "path": "/mobile",
+                "title": "移动端"
+              },
+              {
+                "path": "/pc",
+                "title": "电脑端"
+              },
+              {
+                "path": "/accountConfig",
+                "title": "页面配置"
+              },
+              {
+                "path": "/systemConfig",
+                "title": "系统配置"
+              }
+            ]
+          },
+          {
+            "title": "通知",
+            "children":[
+              {
+                "path": "/notice",
+                "title": "系统通知"
+              },{
+                "path": "/supplierNotice",
+                "hasAuth": true,
+                "title": "供货商通知"
+              },{
+                "path": "/supplierNoticeDetail",
+                "title": "新增公告"
+              }
+            ]
+          },
+          {
+            "title": "关键词配置",
+            "children":[
+              {
+                "path": "/keyword",
+                "title": "热门关键词"
+              }
+            ]
+          },
+          {
+            "title": "协议配置",
+            "children":[
+              {
+                "path": "/agreement",
+                "title": "系统协议"
+              }
+            ]
+          },
+          {
+            "title": "权限",
+            "children":[
+              {
+                "path": "/role",
+                "title": "角色管理"
+              },
+              {
+                "path": "/staff",
+                "title": "账号管理"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "groupName": "商品",
+        "path": "/goods",
+        "list": [
+          {
+            "title": "商品库",
+            "children":[
+              {
+                "path": "/commodity",
+                "title": "商品管理"
+              }, {
+                "path": "/waitGoods",
+                "hasAuth": true,
+                "title": "待审核商品"
+              }
+            ]
+          },
+          {
+            "title": "类目管理",
+            "children":[
+              {
+                "path": "/firstCategory",
+                "title": "一级类目"
+              },
+              {
+                "path": "/secondCategory",
+                "title": "二级类目"
+              },
+              {
+                "path": "/thirdCategory",
+                "title": "三级类目"
+              }
+            ]
+          },
+          {
+            "title": "标签管理",
+            "children":[
+              {
+                "path": "/order",
+                "title": "标签列表"
+              }
+            ]
+          },
+          {
+            "title": "品牌管理",
+            "children":[
+              {
+                "path": "/brand",
+                "title": "品牌管理"
+              }
+            ]
+          },
+          {
+            "title": "渠道管理",
+            "children":[
+              {
+                "path": "/channlemanage",
+                "title": "渠道管理"
+              }
+            ]
+          },
+          {
+            "title": "库存管理",
+            "children":[
+              {
+                "path": "/goodsstock",
+                "title": "商品库存"
+              },
+              {
+                "path": "/supplystock",
+                "title": "供应商库存"
+              }
+            ]
+          },
+          {
+            "title": "物流模板",
+            "children":[
+              {
+                "path": "/freighttemp",
+                "title": "运费模板"
+              },{
+                "path": "/logisticsCompany",
+                "title": "物流公司"
+              }
+            ]
+          },
+          {
+            "title": "图片管理",
+            "children":[
+              {
+                "hideBreadNav":true,
+                "path": "/filefolder",
+                "title": "图片管理"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "groupName": "交易",
+        "path": "/trade",
+        "list": [
+          {
+            "title": "订单",
+            "children":[
+              {
+                "path": "/order",
+                "title": "订单管理"
+              }
+            ]
+          },
+          {
+            "title": "发票管理",
+            "children":[
+              {
+                "path": "/invoice",
+                "title": "开票申请"
+              },
+              {
+                "path": "/invoiced",
+                "title": "已开发票"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "groupName": "店铺",
+        "path": "/store",
+        "list": [
+          {
+            "title": "店铺",
+            "children":[
+              {
+                "path": "/shop",
+                "title": "店铺管理"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "groupName": "营销",
+        "path": "/marketing",
+        "list": [
+          {
+            "title": "营销活动",
+            "children":[
+              {
+                "path": "/promotion",
+                "title": "平台促销"
+              },
+              {
+                "path": "/order",
+                "title": "活动类型"
+              },
+              {
+                "path": "/buyLimit",
+                "title": "限时抢购"
+              },
+              {
+                "path": "/groupBuy",
+                "title": "团购"
+              },
+              {
+                "path": "/presell",
+                "title": "预售"
+              }
+            ]
+          },
+          {
+            "title": "优惠券",
+            "children":[
+              {
+                "path": "/coupon",
+                "title": "优惠券管理"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "groupName": "数据",
+        "path": "/data",
+        "list": [
+          {
+            "title": "系统统计",
+            "children":[
+              {
+                "path": "/order",
+                "title": "用户统计"
+              },
+              {
+                "path": "/order",
+                "title": "流量统计"
+              }
+            ]
+          },
+          {
+            "title": "订单统计",
+            "children":[
+              {
+                "path": "/ordercount",
+                "title": "订单统计"
+              }
+            ]
+          },
+          {
+            "title": "销售统计",
+            "children":[
+              {
+                "path": "/salecount",
+                "title": "商品营销"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "groupName": "用户",
+        "path": "/user",
+        "list": [
+          {
+            "title": "采购商管理",
+            "children":[
+              {
+                "path": "/purchaseaccount",
+                "title": "账号管理"
+              },
+              {
+                "path": "/audit",
+                "title": "账号审核"
+              },
+              {
+                "path": "/levelmanage",
+                "title": "会员等级"
+              },
+              {
+                "path": "/detail",
+                "title": "采购商详情"
+              }
+            ]
+          },
+          {
+            "title": "供应商管理",
+            "children":[
+              {
+                "path": "/supplyaccount",
+                "title": "账号管理"
+              }
+            ]
+          },
+          {
+            "title": "邀请码管理",
+            "children":[
+              {
+                "path": "/invitationcode",
+                "title": "邀请码列表"
+              },
+              {
+                "path": "/createdinvitation",
+                "title": "生成邀请码"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "groupName": "供应商",
+        "path": "/supplier",
+        "list": [
+          {
+            "title": "供应商管理",
+            "hasAuth": true,
+            "children":[
+              {
+                "path": "/supplierList",
+                "hasAuth": true,
+                "title": "供货商列表"
+              },{
+                "path": "/addSupplier",
+                "title": "新增供货商"
+              }
+            ]
+          }, {
+            "title": "订单管理",
+            "hasAuth": true,
+            "children": [
+              {
+                "path": "/supplierOrder",
+                "hasAuth": true,
+                "title": "订单列表"
+              },{
+                "path": "/supplierOrderDetail",
+                "title": "订单详情"
+              },{
+                "path": "/supplierAbnormalOrder",
+                "hasAuth": true,
+                "title": "异常订单"
+              }
+            ]
+          },{
+            "title": "商品管理",
+            "hasAuth": true,
+            "children": [
+              {
+                "path": "/goodsList",
+                "hasAuth": true,
+                "title": "商品列表"
+              },{
+                "path": "/goodsDetail",
+                "title": "商品详情"
+              },{
+                "path": "/priceReview",
+                "hasAuth": true,
+                "title": "涨价审核"
+              }
+            ]
+          },{
+            "title": "模板管理",
+            "hasAuth": true,
+            "children": [
+              {
+                "path": "/categoryAdmin",
+                "hasAuth": true,
+                "title": "类目模板"
+              }, {
+                "path": "/goodsTemplate",
+                "hasAuth": true,
+                "title": "商品模板"
+              },{
+                "path": "/addGoodsTemplate",
+                "title": "新增商品"
+              },{
+                "path": "/brandTemplate",
+                "hasAuth": true,
+                "title": "品牌模板"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "groupName": "消息中心",
+        "path": "/notice",
+        "list": [
+          {
+            "title": "消息管理",
+            "children":[
+              {
+                "path": "/order",
+                "title": "在线客服"
+              },
+              {
+                "path": "/order",
+                "title": "在线群聊"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "groupName": "应用中心",
+        "path": "/app",
+        "list": [
+          {
+            "title": "应用管理",
+            "children":[
+              {
+                "path": "/order",
+                "title": "已购应用"
+              },
+              {
+                "path": "/order",
+                "title": "应用列表"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "groupName": "采购中心",
+        "path": "/sup",
+        "list": [
+          {
+            "title": "采购管理",
+            "children":[
+              {
+                "path": "/order",
+                "title": "已购供应商"
+              },
+              {
+                "path": "/order",
+                "title": "供应商列表"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "groupName": "暂无权限",
+        "path": "/noAuth",
+        "list": [
+          {
+            "title": "暂无权限",
+            "hasAuth": true,
+            "children":[
+              {
+                "path": "/notice",
+                "title": "暂无权限",
+                "hasAuth": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

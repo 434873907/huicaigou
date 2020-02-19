@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd"
+>
+    <bean class="org.summercool.web.module.WebModuleConfigurer">
+        <property name="moduleName" value="Admin"/>
+        <property name="domain" value="localAdmin" />
+        <property name="uriExtension" value=".do"/>
+        <property name="moduleBasePackage" value="com.chengzi.apiunion.procurement.admin"/>
+        <property name="context" value="/"/>
+        <property name="contextPackage" value="/web/"/>
+    </bean>
+
+    <bean class="org.summercool.web.module.WebModuleConfigurer">
+        <property name="moduleName" value="guojiu"/>
+        <property name="domain" value="at.apiunion.com 127.0.0.1" />
+        <property name="uriExtension" value=".do"/>
+        <property name="moduleBasePackage" value="com.chengzi.apiunion.procurement.admin"/>
+        <property name="context" value="/"/>
+        <property name="contextPackage" value="/web/"/>
+    </bean>
+    
+    <bean name="webModuleUriExtensionConfigurer" class="org.summercool.web.module.WebModuleUriExtensionConfigurer">
+        <property name="uriExtensions">
+            <list>
+                <value>.do</value>
+                <value>.html</value>
+                <value></value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="handlerExceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="defaultErrorView" value="/web/views/error"/>
+        <property name="defaultStatusCode" value="500"/>
+    </bean>
+
+    <!-- views -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="maxUploadSize" value="20000000"/>
+        <property name="maxInMemorySize" value="30720"/>
+    </bean>
+    
+    
+	<bean id="thymeleafTemplateResolver"
+		class="org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver">
+		<property name="prefix" value="/WEB-INF/thymeleaf" />
+		<property name="suffix" value=".html" />
+		<property name="templateMode" value="HTML" />
+		<property name="cacheable" value="false" />
+	</bean>
+
+	<bean id="templateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine">
+		<property name="templateResolver" ref="thymeleafTemplateResolver" />
+		<property name="enableSpringELCompiler" value="true" />
+	</bean>
+
+	<bean id="thymeleafViewResolver" class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
+		<property name="order" value="-2147483648" />
+		<property name="templateEngine" ref="templateEngine" />
+		<property name="characterEncoding" value="UTF-8" />
+		<property name="contentType" value="text/html; charset=UTF-8" />
+	</bean>
+
+	<!-- 表单提交参数自动转换扩展 -->
+	<bean id="conversionService"
+		class="org.summercool.web.converter.support.ConversionServiceFactoryBean">
+		<property name="converters">
+			<set>
+				<bean class="org.summercool.web.converter.StringToDateConverter" />
+<!--                <bean class="org.summercool.web.converter.StringToJsonConverter"/>-->
+				<bean class="org.summercool.web.converter.StringToGsonConverter">
+					<property name="typeAdapterFactorys">
+						<list>
+							<!-- 枚举值支持 -->
+                			<util:constant static-field="com.chengzi.common.gson.support.EnumTypeAdapterFactory.INSTANCE"/>
+                			<!-- 掩码自动解码 -->
+                			<util:constant static-field="com.chengzi.common.gson.support.MaskNumberAdapterFactory.INSTANCE"/>
+                			<!-- 布尔类型自动转换 -->
+                			<util:constant static-field="com.chengzi.common.gson.support.BooleanAdapterFactory.INSTANCE"/>
+						</list>
+					</property>
+				</bean>
+				<!-- 枚举值支持 -->
+				<bean class="com.chengzi.common.spring.convert.StringToEnumConverterFactory" />
+				<!-- 掩码自动解码 -->
+				<bean class="com.chengzi.common.spring.convert.StringToNumberConverterFactory" />
+				<bean class="com.chengzi.common.spring.convert.StringToArrayConverter" />
+				<bean class="com.chengzi.common.spring.convert.StringToCollectionConverter" />
+			</set>
+		</property>
+	</bean>
+	
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<map> 
+				<!-- 进度查询 -->
+                <entry key="/common/progress_rate.do">
+                    <bean class="com.chengzi.apiunion.common.web.controllers.progress.ProgressRateController"/>
+                </entry>
+                <entry key="/common/progress_result.do">
+                    <bean class="com.chengzi.apiunion.common.web.controllers.progress.ProgressResultController"/>
+                </entry>
+                <!-- Excel模板下载 -->
+                <entry key="/common/download_excel_template.do">
+                    <bean class="com.chengzi.apiunion.common.web.controllers.excel.DownloadExcelTemplateController"/>
+                </entry>
+                <!-- 清除序列缓存 -->
+                <entry key="/redis/clear_seq_cache.do">
+                    <bean class="com.chengzi.apiunion.common.web.controllers.redis.ClearSeqCacheController"/>
+                </entry>
+                <!-- 运行Redis脚本 -->
+                <entry key="/redis/run_redis_script.do">
+                    <bean class="com.chengzi.apiunion.common.web.controllers.redis.RunRedisScriptController"/>
+                </entry>
+			</map>
+		</property>
+	</bean>
+</beans>

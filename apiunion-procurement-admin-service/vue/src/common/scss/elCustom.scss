@@ -1,0 +1,188 @@
+/*
+    el-dialog
+*/
+
+.el-dialog{
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.el-dialog__header{
+  padding: 0 20px;
+  height: 40px;
+  line-height: 40px;
+  background: $main-color;
+  .el-dialog__headerbtn{
+    top: 12px;
+    .el-dialog__close{
+      color:$white-color;
+    }
+  }
+}
+.el-date-editor--datetime{
+  width:165px;
+}
+.el-dialog__title{
+  font-size: 14px;
+  font-weight: 900;
+  position: relative;
+  color: $white-color;
+  &::before{
+    content: " ";
+    width: 3px;
+    height: 13px;
+    background: $white-color;
+    position: absolute;
+    left: -8px;
+    top: 3px;
+  }
+}
+
+.el-dialog__body{
+  padding: 20px 20px 10px;
+  color:#333;
+  .dialog-form{
+    padding-left: 20px;
+    .form-wrap{
+      margin-bottom: 15px;
+      .form-name{
+        text-align: right;
+      }
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.el-dialog__footer{
+  text-align: center;
+  button{
+    margin: 0 10px;
+  }
+}
+
+
+/*
+  el-radio
+*/
+
+.el-radio{
+  color:#333;
+}
+
+.el-radio__input.is-checked .el-radio__inner {
+  border-color: $org-color;
+  background: $org-color;
+  // &::after{
+  //   background: transparent;
+  // }
+}
+
+.el-radio__input.is-checked+.el-radio__label {
+  color: #333;
+}
+
+/*
+checkbox
+*/
+.el-checkbox__input.is-focus .el-checkbox__inner{
+  border-color: $org-color;
+}
+.el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner{
+  background-color: $org-color;
+  border-color: $org-color;
+}
+.el-checkbox__input.is-checked+.el-checkbox__label{
+  color: $org-color;
+}
+.el-checkbox__label{
+  color:#333;
+}
+.el-checkbox-group{
+  .form-wrap{
+    font-size: 14px;
+  }
+}
+.el-date-editor{
+  .el-input__inner{
+    line-height: 30px;
+    height: 30px;
+  }
+  .el-input__icon{
+    line-height: 30px;
+  }
+}
+
+/*
+  el-icon
+*/
+
+.el-icon-close{
+  cursor: pointer;
+}
+
+
+/*
+  el-color-picker
+*/
+
+.el-color-picker{
+  vertical-align: middle;
+  
+}
+.el-color-picker__panel{
+  .el-button{
+    padding: 6px;
+    margin: 0 4px;
+    line-height: 1;
+    border-radius: 4px;
+    background: #fff;
+    outline: medium;
+    border: 1px solid $border-color;
+    &:focus,&:active{
+      box-shadow: 0;
+      border: 1px solid $border-color;
+    }
+  }
+}
+
+/*
+  el-pager
+*/
+
+.el-pager li.active{
+  color: $main-color;
+}
+.el-pagination.is-background .el-pager li:not(.disabled).active{
+  background-color: $main-color;
+  &:hover{
+    color: #fff;
+  }
+}
+.el-pagination.is-background .el-pager li:not(.disabled):hover{
+  color: $main-color;
+}
+
+/*
+  el-message
+*/
+
+.el-message-box{
+  .el-message-box__btns{
+    .el-button:hover{
+      background: #fff;
+      color: $main-color;
+      border-color: $main-color;
+    }
+    .el-button--primary, .el-button--primary:hover{
+      color: #fff;
+      background: $main-color;
+      border-color: $main-color;
+    }
+  }
+}
+
+.el-input__suffix{
+  right: 10px;
+}

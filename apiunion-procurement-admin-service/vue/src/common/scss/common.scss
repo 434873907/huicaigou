@@ -1,0 +1,514 @@
+.tab-bar{
+  margin-bottom: 10px;
+  .tab-item{
+    display: inline-block;
+    margin-right: 10px;
+    background: $white-color;
+    min-width: 80px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    &.active{
+      background: $main-color;
+      color:#fff;
+      font-weight: 600;
+    }
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+}
+
+.link{
+  color: $link-color;
+  cursor: pointer;
+  white-space : nowrap ;
+  display:inline-block;
+}
+
+.red-link{
+  color: $main-color;
+  cursor: pointer;
+}
+
+.underline{
+  text-decoration: underline;
+}
+
+.org-font{
+  color: $org-color;
+}
+
+.search-bar{
+  padding:10px 20px;
+  border-bottom:1px solid $border-color;
+  .search-bar-title{
+    display: inline-block;
+    margin-right: 10px;
+    font-weight: 900;
+  }
+  .pull-right,.pull-left{
+    margin-top: 1px;
+  }
+  .form-wrap{
+    display: inline-block;
+    margin-right: 20px;
+    .form-control{
+      margin-right: 10px;
+      &:last-child{
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+
+.form-wrap{
+  .form-require{
+    position: relative;
+    &::before{
+      content: "*";
+      position: absolute;
+      top: 0;
+      left: -7px;
+      font-size: 16px;
+      color:$main-color;
+    }
+  }
+}
+
+.form-name{
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.form-control{
+  display: inline-block;
+  height: 30px;
+  padding: 4px 12px;
+  border:1px solid $border-color;
+  border-radius: 4px;
+  outline: medium;
+}
+
+.form-control[type = 'radio']{
+  width: unset !important;
+  height: unset;
+  margin-right: 10px;
+  vertical-align: top;
+}
+
+.form-group{
+  display: inline-block;
+  .flex-wrap{
+    display: flex;
+    justify-content: space-between;
+  }
+  .form-control{
+    flex: 1;
+    min-width: unset;
+    width: auto !important;
+  }
+  select.form-control{
+    min-width: 80px;
+  }
+}
+
+.timepicker-control{
+  width: 164px;
+}
+textarea{
+  resize: none;
+  border:1px solid $border-color;
+}
+
+select.form-control{
+  min-width: 160px;
+}
+
+.list-wrap{
+  border-radius: 4px;
+  overflow: hidden;
+  background: $white-color;
+}
+
+.btn{
+  display: inline-block;
+  min-width: 86px;
+  padding:0 14px;
+  border-radius: 100px;
+  text-align: center;
+  line-height: 28px;
+  height: 30px;;
+  border:1px solid $main-color;
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn-small-size{
+  height: 20px;
+  line-height: 20px;
+  font-size: 12px;
+}
+
+.btn-main{
+  color:$white-color;
+  background: $main-color;
+  @extend .btn;
+}
+
+.btn-org-main{
+  color:$white-color;
+  background:$org-color;
+  @extend .btn;
+}
+
+.btn-fill-main{
+  color:$main-color;
+  border:1px solid rgba($color: $main-color, $alpha: 0.6);
+  background: #fff;
+  @extend .btn;
+}
+
+.btn-fill-org-main{
+  color:$org-color;
+  border:1px solid rgba($color: $org-color, $alpha: 0.6);
+  background: #fff;
+  @extend .btn;
+}
+
+.btn-fill-grey-main{
+  color:$font-color;
+  border:1px solid rgba($color: $grey-color, $alpha: 0.6);
+  background: #fff;
+  @extend .btn;
+}
+
+
+.btn-small{
+  color:$white-color;
+  background:$main-color;
+  @extend .btn;
+  @extend .btn-small-size;
+}
+
+.btn-org-small{
+  line-height: 20px;
+  color:$white-color;
+  background:$org-color;
+  font-size: 12px;
+  @extend .btn;
+  @extend .btn-small-size;
+}
+
+.unset-select{
+  color: #999;
+}
+
+.table{
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  text-align:left;
+  thead,tbody{
+    th{
+      color:#666;
+      font-weight: bold;
+      height: 50px;
+      // border-bottom:1px solid $border-color;
+    }
+    .table-w40{
+      width: 40px;
+    }
+    .table-w50{
+      width: 50px;
+    }
+    .table-w60{
+      width: 60px;
+    }
+    .table-w73{
+      width: 73px;
+    }
+    .table-w80{
+      width: 80px;
+    }
+     .table-w90{
+      width: 90px;
+    }
+    .table-w93{
+      width: 93px;
+    }
+    .table-w100{
+      width: 100px;
+    }
+    .table-w110{
+      width: 110px;
+    }
+    .table-w120{
+      width: 120px;
+    }
+    .table-w130{
+      width: 130px;
+    }
+    .table-w140{
+      width: 140px;
+    }
+    .table-w150{
+      width: 150px;
+    }
+    .table-w160{
+      width: 160px;
+    }
+    .table-w170{
+      width: 170px;
+    }
+    .table-w178{
+      width: 178px;
+    }
+    .table-w180{
+      width: 180px;
+    }
+    .table-w200{
+      width: 200px;
+    }
+    .table-w220{
+      width: 220px;
+    }
+    .table-w240{
+      width: 240px;
+    }
+     .table-w330{
+      width: 330px;
+    }
+    .table-w340{
+      width: 340px;
+    }
+    .table-w360{
+      width: 360px;
+    }
+    .table-w380{
+      width: 380px;
+    }
+    .table-w440{
+      width: 440px;
+    }
+    tr{
+      margin-left: 20px;
+      border-bottom: 1px solid $border-color;
+      th:first-child{
+        padding-left: 20px;
+        position: relative;
+        border-bottom: none;
+        &::before{
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 0;
+          background: $border-color;
+          left: 20px;
+          bottom: 0;
+        }
+      }
+    }
+  }
+  tbody{
+    tr{
+      background: #fff;
+      &:nth-child(odd){
+        background: #F2F4F7;
+      }
+      td:first-child{
+        padding-left: 20px;
+      }
+    }
+    .selectedTr{
+      background: rgba($color: $org-color, $alpha: 0.1)!important;
+    }
+  }
+  th,td{
+    font-size: 14px;
+    padding: 16px 15px 12px 0;
+    vertical-align: middle;
+    img{
+      max-width: 54px;
+      max-height: 54px;
+    }
+  }
+  td{
+    height: 48px;
+    // padding: 0 15px 0 0;
+    padding:10px 20px 10px 0;
+    border-bottom: 1px solid #E5E5E5;
+    // overflow: hidden;
+    // text-overflow:ellipsis;
+    // white-space: nowrap;
+    .imgBoxCont{
+      display: inline-block;
+      width:52px;
+      height: 52px;
+      background:#eee;
+      text-align: center;
+      vertical-align: middle;
+    }
+    .imgBox{
+      width:52px;
+    }
+    .active-status{
+      color: $org-color;
+    }
+    .disable-status{
+      color: #999;
+    }
+    .during-status{
+      color: $main-color;
+    }
+  }
+  .price-status{
+    color: $main-color;
+    font-weight: bold;
+  }
+  .dot{
+    width: 60px;
+    position: relative;
+    &::after{
+      content: " ";
+      width: 12px;
+      height: 12px;
+      border:1px solid  #ddd;
+      border-radius: 7px;
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      margin-top: -7px;
+    }
+    &.active::after{
+      background:$main-color;
+      border:1px solid $main-color;
+    }
+  }
+}
+.table-text{
+  td{
+    height: 40px;
+  }
+  th,td{
+    font-size: 14px;
+  }
+}
+
+.ellipsis{
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  word-break: normal;
+  text-overflow: ellipsis;
+  span{
+    display: inline-block;
+    max-width: 100%;
+    line-height: 2;
+  }
+}
+.table .ellipsis{
+  display: block;
+  // font-size: 0;
+  span{
+    font-size: 14px;
+    line-height: 1;
+  }
+}
+.el-popover{
+  width: 100%;
+  display: inline-block;
+  word-break: break-all;
+  span{
+    display: inline-block;
+    max-width: 100%;
+    line-height: 2;
+  }
+}
+.base-margin-left{
+  margin-left: $base-margin
+}
+
+.base-margin-right{
+  margin-right: $base-margin
+}
+
+.base-margin-bottom{
+  margin-bottom: $base-margin
+}
+.tip{
+  box-sizing: border-box;
+  padding-left: 10px;
+  color: #999999;
+  font-size: 14px;
+}
+.fontCol{
+  font-size: 14px;
+  color: #999999;
+}
+.flexBox{
+  display: flex;
+  align-items: center;
+}
+.clickText{
+  color: #3A62E1;
+  font-size: 14px;
+  cursor: pointer;
+}
+.titleMar{
+  margin-bottom: 10px;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #333333;
+  font-weight: 600;
+}
+.marTop10{
+  margin-top: 10px;
+}
+.marTop15{
+  margin-top: 15px;
+}
+.marTop20{
+  margin-top: 20px;
+}
+.marLeft10{
+  margin-left: 10px;
+}
+.marLeft20{
+  margin-left: 20px;
+}
+.marLeft15{
+  margin-left: 15px;
+}
+.marRight15{
+  margin-right: 15px;
+}
+.marRight10{
+  margin-right: 10px;
+}
+.marBottom5{
+  margin-bottom: 5px;
+}
+.marBottom10{
+  margin-bottom: 10px;
+}
+.marBottom15{
+  margin-bottom: 15px;
+}
+.marBottom20{
+  margin-bottom: 20px;
+}
+.btnStyle{
+  width:86px;
+  height:30px;
+  background:rgba(225,55,108,1);
+  border-radius:100px;
+  text-align: center;
+  line-height: 30px;
+  color: #ffffff;
+  display: inline-block;
+  cursor: pointer;
+}

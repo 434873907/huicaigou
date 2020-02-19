@@ -1,0 +1,1 @@
+mvn -D maven.test.skip=true deploy

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chengzi.apiunion.procurement.role.partnerrole.dao.PartnerRoleMapper">
+  <resultMap id="BaseResultMap" type="com.chengzi.apiunion.procurement.role.partnerrole.pojo.PartnerRoleDO">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="route_id" jdbcType="BIGINT" property="routeId" />
+    <result column="role_name" jdbcType="VARCHAR" property="roleName" />
+    <result column="platform" jdbcType="INTEGER" property="platform" />
+    <result column="menu_permissions" jdbcType="VARCHAR" property="menuPermissions" />
+    <result column="function_permissions" jdbcType="VARCHAR" property="functionPermissions" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, create_time, modify_time, is_deleted, route_id,
+    role_name, platform, menu_permissions, function_permissions
+  </sql>
+
+  <insert id="insert" parameterType="com.chengzi.apiunion.procurement.role.partnerrole.pojo.PartnerRoleDO">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    INSERT INTO au_partner_role(create_time, modify_time, is_deleted, route_id,
+      role_name, platform, menu_permissions, function_permissions
+    )
+    VALUES (NOW(), NOW(), #{isDeleted, jdbcType=TINYINT}, #{routeId, jdbcType=BIGINT},
+      #{roleName, jdbcType=VARCHAR}, #{platform, jdbcType=INTEGER},
+      #{menuPermissions, jdbcType=VARCHAR}, #{functionPermissions, jdbcType=VARCHAR}
+    )
+  </insert>
+  
+  <delete id="delete" parameterType="com.chengzi.apiunion.common.data.beans.SimpleRouteOperate">
+    UPDATE au_partner_role
+    SET 
+      is_deleted = 1,
+      role_name = CONCAT(role_name, '_del_', id)
+    WHERE id = #{value}
+      AND route_id = #{routeId}
+  </delete>
+
+  <delete id="deleteBatch" parameterType="com.chengzi.apiunion.common.data.beans.ListRouteOperate">
+    UPDATE au_partner_role
+    SET
+      is_deleted = 1,
+      role_name = CONCAT(role_name, '_del_', id)
+    WHERE route_id = #{routeId}
+      AND id IN
+      <foreach collection="value" item="id" open="(" separator="," close=")">
+        #{id}
+      </foreach>
+  </delete>
+  
+  <select id="selectById" parameterType="com.chengzi.apiunion.common.data.beans.SimpleRouteOperate" resultMap="BaseResultMap">
+    SELECT 
+    <include refid="Base_Column_List" />
+    FROM au_partner_role
+    WHERE id = #{value}
+      AND route_id = #{routeId}
+  </select>
+
+  <select id="selectByIds" parameterType="com.chengzi.apiunion.common.data.beans.ListRouteOperate" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM au_partner_role
+    WHERE route_id = #{routeId}
+      AND id IN
+      <foreach collection="values" item="id" open="(" separator="," close=")">
+        #{id}
+      </foreach>
+  </select>
+
+  <select id="selectPartnerRoleList" parameterType="com.chengzi.apiunion.common.data.beans.RouteOperate" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM au_partner_role
+    WHERE route_id = #{routeId}
+      AND is_deleted = 0
+  </select>
+
+  <select id="selectByQuery" parameterType="com.chengzi.apiunion.common.data.beans.RouteQuery" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM au_partner_role
+    WHERE route_id = #{routeId}
+      AND is_deleted = #{isDeleted}
+    LIMIT #{offset}, #{limit}
+  </select>
+
+  <select id="countByQuery" parameterType="com.chengzi.apiunion.common.data.beans.RouteQuery" resultType="java.lang.Long">
+    SELECT COUNT(*)
+    FROM au_partner_role
+    WHERE route_id = #{routeId}
+      AND is_deleted = #{isDeleted}
+  </select>
+
+  <update id="update" parameterType="com.chengzi.apiunion.procurement.role.partnerrole.pojo.PartnerRoleDO">
+    UPDATE au_partner_role
+    SET
+      role_name = #{roleName},
+      menu_permissions = #{menuPermissions},
+      function_permissions = #{functionPermissions}
+    WHERE route_id = #{routeId}
+      AND id = #{id}
+  </update>
+
+</mapper>

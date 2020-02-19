@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
+>
+	<bean class="com.chengzi.apiunion.common.web.pipeline.LogExceptionPipeline"/>
+	<bean class="com.chengzi.apiunion.common.web.pipeline.RequestContextAroundPipeline">
+		<property name="whiteSuffixs">
+			<set>
+				<value>.do</value>
+			</set>
+		</property>
+	</bean>
+	<bean class="com.chengzi.apiunion.common.web.pipeline.RequestPreProcessPipeline">
+		<property name="needDistinctModule" value="false" />
+	</bean>
+	
+	<bean class="com.chengzi.apiunion.procurement.admin.web.pipeline.InitContextPipeline"/>
+
+	<bean class="com.chengzi.apiunion.common.web.pipeline.LoginPipeline">
+		<property name="whiteList">
+			<list>
+				<value>/</value>
+				<value>/**/*.html</value>
+				<value>/**/*.xls</value>
+				<value>/**/*.xlsx</value>
+				<value>/partneruser/partner_user_login.do</value>
+				<value>/systeminfo/get_system_info.do</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean class="com.chengzi.apiunion.procurement.pipeline.MenuPermissionPipeline">
+		<property name="whiteList">
+			<list>
+				<value>/</value>
+				<value>/**/*.html</value>
+				<value>/**/*.xls</value>
+				<value>/**/*.xlsx</value>
+				<value>/partneruser/partner_user_login.do</value>
+				<value>/partneruser/partner_user_logout.do</value>
+				<value>/menu/get_menu.do</value>
+				<value>/common/progress_rate.do</value>
+				<value>/common/progress_result.do</value>
+				<value>/common/download_excel_template.do</value>
+				<value>/systeminfo/get_system_info.do</value>
+				<value>/**/*.do</value>
+			</list>
+		</property>
+	</bean>
+</beans>

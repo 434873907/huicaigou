@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
+>
+
+	<import resource="classpath*:spring/common-beans.xml"/>
+	<import resource="classpath*:spring/common-mybatis-beans.xml"/>
+	<import resource="classpath*:spring/item-redis-beans.xml"/>
+	<import resource="classpath*:spring/index-redis-beans.xml"/>
+	<import resource="classpath*:spring/sales-redis-beans.xml"/>
+	<import resource="classpath*:spring/misc-beans.xml"/>
+	<import resource="classpath*:spring/order-redis-beans.xml" />
+	<import resource="classpath*:spring/order-rocket-beans.xml" />
+	<import resource="classpath*:spring/hsf-consumer-beans.xml" />
+	<import resource="classpath*:spring/supplier-common-mybatis-beans.xml"/>
+	
+	<bean class="com.chengzi.apiunion.common.data.cipher.token.TokenGenerator">
+		<property name="key16" value="${login.token.key16}"/>
+	</bean>
+
+	<bean id="asyncSmsService" class="com.chengzi.apiunion.common.hsf.spring.factorybeans.HsfClusterServiceConsumerBean">
+		<property name="clusterName" value="3rdparty"/>
+		<property name="serviceInterface" value="com.chengzi.apiunion.thirdparty.sms.service.SmsService"/>
+		<!-- 可选参数，路由策略，默认ROUND
+            ROUND: 轮循集群节点
+            BROADCAST: 广播
+         -->
+		<property name="routeStrategy" value="ROUND"/>
+		<!-- 可选参数，调用策略，默认SYNC
+            SYNC: 同步
+            ASYNC: 异步
+            CALLBACK: 回调
+         -->
+		<property name="invokeStrategy" value="ASYNC"/>
+		<!--
+            当调用为CALLBACK时必填，实现接口org.summercool.hsf.util.AsyncCallback<?>
+        <property name="callback" ref="xxxCallback"/>
+        -->
+		<!-- 可选参数，出现异常时是否抛出，默认true -->
+		<property name="throwsException" value="false"/>
+	</bean>
+</beans>

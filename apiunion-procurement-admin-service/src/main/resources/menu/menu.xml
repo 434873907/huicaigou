@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <!--<menu id="1" title="工作桌面" url="/desktop">-->
+        <!--<menu id="1-1" title="工作台">-->
+            <!--<menu id="1-1-1" title="任务" url="/task"></menu>-->
+            <!--&lt;!&ndash;<menu id="1-1-2" title="反馈" url="/feedback"></menu>&ndash;&gt;-->
+        <!--</menu>-->
+    <!--</menu>-->
+    <menu id="2" title="系统" url="/system">
+        <menu id="2-1" title="配置">
+            <menu id="2-1-1" title="移动端" url="/index/**"></menu>
+            <menu id="2-1-2" title="电脑端" url="/pcconfig/**"></menu>
+            <menu id="2-1-3" title="页面配置" url="/config/**"></menu>
+            <menu id="2-1-4" title="系统配置" url="/config/**"></menu>
+        </menu>
+        <!--<menu id="2-4" title="关键词配置">-->
+            <!--<menu id="2-4-1" title="热门关键词"  url="/hotkeyword/**"></menu>-->
+        <!--</menu>-->
+        <menu id="2-2" title="通知">
+            <menu id="2-2-1" title="系统通知" url="/announcement/**"></menu>
+        </menu>
+        <menu id="2-3" title="权限">
+            <menu id="2-3-1" title="角色管理" url="/partnerrole/**"></menu>
+            <menu id="2-3-2" title="账号管理" url="/partneruser/**"></menu>
+        </menu>
+        <menu id="2-5" title="协议配置">
+            <menu id="2-5-1" title="系统协议"  url="/agreement/**"></menu>
+        </menu>
+    </menu>
+    <menu id="3" title="商品" url="/goods">
+        <menu id="3-1" title="商品库">
+            <menu id="3-1-1" title="商品管理" url="/item/**"></menu>
+        </menu>
+        <menu id="3-2" title="类目管理">
+            <menu id="3-2-1" title="一级类目" url="/partnercategory/**"></menu>
+            <menu id="3-2-2" title="二级类目" url="/partnercategory/**"></menu>
+            <menu id="3-2-3" title="三级类目" url="/partnercategory/**"></menu>
+        </menu>
+        <!--<menu id="3-3" title="标签管理">-->
+            <!--<menu id="3-3-1" title="标签列表" url="/order"></menu>-->
+        <!--</menu>-->
+        <menu id="3-4" title="品牌管理">
+            <menu id="3-4-1" title="品牌管理" url="/brand/**"></menu>
+        </menu>
+        <!--<menu id="3-5" title="渠道管理">-->
+            <!--<menu id="3-5-1" title="渠道管理" url="/channelmanage"></menu>-->
+        <!--</menu>-->
+        <menu id="3-6" title="库存管理">
+            <menu id="3-6-1" title="商品库存" url="/inventory/**"></menu>
+            <!--<menu id="3-6-2" title="供应商库存" url="/supplystock"></menu>-->
+        </menu>
+        <menu id="3-7" title="物流管理">
+            <menu id="3-7-1" title="运费模板" url="/expressfeetemplate/**"></menu>
+            <menu id="3-7-2" title="物流公司" url="/expresscompany/**"></menu>
+        </menu>
+<!--        <menu id="3-8" title="图片管理">-->
+<!--            <menu id="3-8-1" title="图片管理" url="/filefolder/**"></menu>-->
+<!--        </menu>-->
+    </menu>
+    <menu id="4" title="交易" url="/trade">
+        <menu id="4-1" title="订单">
+            <menu id="4-1-1" title="订单管理" url="/order/**"></menu>
+        </menu>
+        <menu id="4-2" title="发票管理">
+            <menu id="4-2-1" title="开票申请" url="/invoice/**"></menu>
+            <menu id="4-2-2" title="已开发票" url="/invoice/**"></menu>
+        </menu>
+    </menu>
+    <menu id="11" title="店铺" url="/shop">
+        <menu id="11-1" title="店铺">
+            <menu id="11-1-1" title="店铺管理" url="/shop/**"></menu>
+        </menu>
+    </menu>
+    <menu id="5" title="营销" url="/marketing">
+        <menu id="5-1" title="营销活动">
+            <menu id="5-1-1" title="平台促销" url="/activity/**"></menu>
+            <!--<menu id="5-1-2" title="活动类型" url="/order"></menu>-->
+            <menu id="5-1-2" title="限时抢购" url="/activity/**"></menu>
+            <!--<menu id="5-1-3" title="团购" url="/groupbuying/**"></menu>-->
+            <menu id="5-1-4" title="预售" url="/presell/**"></menu>
+        </menu>
+        <menu id="5-2" title="优惠券">
+            <menu id="5-2-1" title="优惠券管理" url="/coupon/**"></menu>
+        </menu>
+    </menu>
+    <!--<menu id="6" title="数据" url="/data">-->
+        <!--<menu id="6-1" title="系统统计">-->
+            <!--<menu id="6-1-1" title="用户统计" url="/order"></menu>-->
+            <!--<menu id="6-1-2" title="流量统计" url="/order"></menu>-->
+        <!--</menu>-->
+        <!--<menu id="6-2" title="订单统计">-->
+            <!--<menu id="6-2-1" title="订单统计" url="/ordercount"></menu>-->
+        <!--</menu>-->
+        <!--<menu id="6-3" title="销售统计">-->
+            <!--<menu id="6-3-1" title="商品营销" url="/salecount"></menu>-->
+        <!--</menu>-->
+    <!--</menu>-->
+    <menu id="7" title="用户" url="/user">
+        <menu id="7-1" title="供应商管理" excludeKeys="guojiu">
+            <menu id="7-1-1" title="账号管理" url="/supplier/**"></menu>
+        </menu>
+        <menu id="7-2" title="采购商管理">
+            <menu id="7-2-1" title="账号管理" url="/user/**"></menu>
+            <menu id="7-2-2" title="账号审核" url="/levelmanage"></menu>
+            <menu id="7-2-3" title="会员等级" url="/specialprice"></menu>
+        </menu>
+        <menu id="7-3" title="邀请码管理">
+            <menu id="7-3-1" title="邀请码列表" url="/user/invitationcode"></menu>
+        </menu>
+    </menu>
+    <!--<menu id="8" title="消息中心" url="/notice">-->
+        <!--<menu id="8-1" title="消息管理">-->
+            <!--<menu id="8-1-1" title="在线客服" url="/order"></menu>-->
+            <!--<menu id="8-1-2" title="在线群聊" url="/order"></menu>-->
+        <!--</menu>-->
+    <!--</menu>-->
+    <!--<menu id="9" title="应用中心" url="/app">-->
+        <!--<menu id="9-1" title="应用管理">-->
+            <!--<menu id="9-1-1" title="已购应用" url="/order"></menu>-->
+            <!--<menu id="9-1-2" title="应用列表" url="/order"></menu>-->
+        <!--</menu>-->
+    <!--</menu>-->
+    <!--<menu id="10" title="采购中心" url="/sup">-->
+        <!--<menu id="10-1" title="采购管理">-->
+            <!--<menu id="10-1-1" title="已购供应商" url="/order"></menu>-->
+            <!--<menu id="10-1-2" title="供应商列表" url="/order"></menu>-->
+        <!--</menu>-->
+    <!--</menu>-->
+
+    <menu id="12" title="供应商" url="/supplier">
+        <menu id="12-1" title="订单管理">
+            <menu id="12-1-1" title="订单列表" url="/supplier/order/**"></menu>
+            <!--<menu id="5-1-2" title="活动类型" url="/order"></menu>-->
+            <menu id="12-1-2" title="异常订单" url="/supplier/order/**"></menu>
+
+        </menu>
+        <menu id="12-2" title="商品管理">
+            <menu id="12-2-1" title="商品列表" url="/supplier/item/**"></menu>
+        </menu>
+        <menu id="12-3" title="模板管理">
+            <menu id="12-3-1" title="类目模板" url="/tempate/**"></menu>
+            <menu id="12-3-2" title="商品模板" url="/tempate/**"></menu>
+            <menu id="12-3-3" title="品牌模板" url="/template/**"></menu>
+        </menu>
+    </menu>
+</root>

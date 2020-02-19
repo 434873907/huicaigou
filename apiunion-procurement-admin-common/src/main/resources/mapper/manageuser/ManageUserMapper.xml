@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chengzi.apiunion.procurement.admin.manageuser.dao.ManageUserMapper">
+  <resultMap id="BaseResultMap" type="com.chengzi.apiunion.procurement.admin.manageuser.pojo.ManageUserDO">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="route_id" jdbcType="BIGINT" property="routeId" />
+    <result column="account" jdbcType="VARCHAR" property="account" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="logo_url" jdbcType="VARCHAR" property="logoUrl" />
+    <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime" />
+    <result column="last_visit_time" jdbcType="TIMESTAMP" property="lastVisitTime" />
+    <result column="last_pwd_change_time" jdbcType="TIMESTAMP" property="lastPwdChangeTime" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, create_time, modify_time, is_deleted, route_id, account, password, nick_name, 
+    logo_url, last_login_time, last_visit_time, last_pwd_change_time, parent_id
+  </sql>
+
+  <insert id="insert" parameterType="com.chengzi.apiunion.procurement.admin.manageuser.pojo.ManageUserDO">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    INSERT INTO au_manage_user(create_time, modify_time, is_deleted, route_id,
+      account, password, nick_name, logo_url,
+      last_login_time, last_visit_time,
+      last_pwd_change_time, parent_id
+    )
+    VALUES (NOW(), NOW(), #{isDeleted, jdbcType=TINYINT}, #{routeId, jdbcType=BIGINT},
+      #{account, jdbcType=VARCHAR}, #{password, jdbcType=VARCHAR}, #{nickName, jdbcType=VARCHAR},
+      #{logoUrl, jdbcType=VARCHAR}, NOW(), NOW(), NOW(), #{parentId, jdbcType=BIGINT})
+  </insert>
+
+  <select id="selectById" parameterType="com.chengzi.apiunion.common.data.beans.SimpleRouteOperate" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM au_manage_user
+    WHERE id = #{value}
+      AND route_id = #{routeId}
+  </select>
+
+  <select id="selectByAccount" parameterType="com.chengzi.apiunion.common.data.beans.SimpleRouteOperate" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM au_manage_user
+    WHERE is_deleted = 0
+      AND account = #{value}
+      AND route_id = #{routeId}
+  </select>
+    
+  <select id="selectByUserName" parameterType="com.chengzi.apiunion.procurement.admin.manageuser.pojo.ManageUserQuery" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM au_manage_user
+    WHERE is_deleted = 0
+      AND route_id = #{routeId}
+      <if test="nickName != null and nickName != ''">
+        AND nick_name = #{nick_name}
+      </if>
+    LIMIT #{offset}, #{limit}
+  </select>
+
+  <select id="selectByUserNameCount" parameterType="com.chengzi.apiunion.procurement.admin.manageuser.pojo.ManageUserQuery" resultType="java.lang.Long">
+    SELECT COUNT(*)
+    FROM au_manage_user
+    WHERE is_deleted = 0
+        AND route_id = #{routeId}
+        <if test="nickName != null and nickName != ''">
+          AND nick_name = #{nick_name}
+        </if>
+  </select>
+
+  <update id="updatePasswordById" parameterType="com.chengzi.apiunion.procurement.admin.manageuser.pojo.ManageUserPasswordOperate">
+    UPDATE au_manage_user
+    SET
+      password = #{password},
+      last_pwd_change_time = NOW()
+    WHERE id = #{id}
+      AND route_id = #{routeId}
+  </update>
+
+  <update id="updateById" parameterType="com.chengzi.apiunion.procurement.admin.manageuser.pojo.ManageUserUpdateOperate">
+    UPDATE au_manager_user
+    SET
+      nick_name = #{nickName},
+      logo_url = #{logoUrl},
+      password = #{password}
+    WHERE id = #{id}
+      AND route_id = #{routeId}
+  </update>
+
+  <update id="updateLastLoginTime" parameterType="com.chengzi.apiunion.common.data.beans.SimpleRouteOperate">
+    UPDATE au_manage_user
+    SET
+      last_login_time = NOW()
+    WHERE id = #{value}
+      AND route_id = #{routeId}
+  </update>
+
+  <delete id="delete" parameterType="com.chengzi.apiunion.common.data.beans.SimpleRouteOperate">
+    UPDATE au_manage_user
+    SET
+      is_deleted = 1,
+      account = CONCAT(account, '_del_', id),
+      nick_name = CONCAT(nick_name, '_del_', nick_name)
+    WHERE route_id = #{routeId}
+      AND id = #{value}
+  </delete>
+
+</mapper>

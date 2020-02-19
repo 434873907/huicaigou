@@ -1,0 +1,61 @@
+{
+  "name": "admin",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vue-cli-service serve",
+    "clean": "rimraf ../webapp/css && rimraf ../webapp/fonts && rimraf ../webapp/img && rimraf ../webapp/js && rimraf ../webapp/static && rimraf ../webapp/favicon.ico && rimraf ../webapp/WEB-INF/thymeleaf ",
+    "build": "npm run clean && vue-cli-service build --no-clean",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "vuescroll": "4.12.2",
+    "axios": "^0.15.3",
+    "echarts": "4.2.0-rc.1",
+    "element-ui": "2.4.8",
+    "es6-promise": "~4.1.0",
+    "vue": "^2.5.17",
+    "vue-cropper": "^0.4.8",
+    "vue-router": "^3.0.1",
+    "vuedraggable": "^2.17.0",
+    "vuelidate": "0.7.4"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.3",
+    "@vue/cli-plugin-eslint": "^3.0.3",
+    "@vue/cli-service": "^3.0.3",
+    "babel-plugin-component": "^1.1.1",
+    "is": "^3.2.1",
+    "node-sass": "^4.9.3",
+    "rimraf": "^2.7.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.0",
+    "vue-template-compiler": "^2.5.17"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {
+      "no-console": "off"
+    },
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
