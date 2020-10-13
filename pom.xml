@@ -50,7 +50,7 @@
 		<expiringmap.version>0.5.6</expiringmap.version>
 		<commons-collections4.version>4.1</commons-collections4.version>
 		<servlet.version>2.5</servlet.version>
-		<junit.version>4.12</junit.version>
+		<junit.version>4.13.1</junit.version>
 		<guava.version>20.0</guava.version>
 		<jetty.version>9.4.15.v20190215</jetty.version>
 
