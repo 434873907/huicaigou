@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "vuescroll": "4.12.2",
-    "axios": "^0.15.3",
+    "axios": "^0.21.1",
     "echarts": "4.2.0-rc.1",
     "element-ui": "2.4.8",
     "es6-promise": "~4.1.0",
